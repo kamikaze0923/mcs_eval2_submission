@@ -60,7 +60,7 @@ class MetaController:
                 flag = 0
                 for k in range(len(object_data)):
                     if round(object_data[k],2) != goal[k]:
-                        print (round(object_data[k],2), goal[k])
+                        #print (round(object_data[k],2), goal[k])
                         flag = 1
                         break
                 if flag == 0 :
@@ -70,9 +70,9 @@ class MetaController:
             current_object_loc = self.plannerState.object_loc_info[current_object_id]
             if len(current_object_loc) == 3 :
                 final_goal = goal[:]
-                success_distance = machine_common_sense.mcs_controller_ai2thor.MAX_REACH_DISTANCE - 0.7
+                success_distance = machine_common_sense.mcs_controller_ai2thor.MAX_REACH_DISTANCE - 0.4
             else :
-                final_goal = (float(current_object_loc[3]['x']), float(current_object_loc[3]['z']), float(current_object_loc[3]['z']))
+                final_goal = (float(current_object_loc[3]), float(current_object_loc[4]), float(current_object_loc[5]))
                 success_distance = 0
 
             success = self.nav.go_to_goal(
