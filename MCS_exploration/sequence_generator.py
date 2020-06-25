@@ -294,7 +294,7 @@ class SequenceGenerator(object):
             if self.agent.game_state.goals_found :
                 return
             if self.agent.game_state.number_actions > constants.MAX_STEPS :
-                print ("Too many actions performed")
+                # print ("Too many actions performed")
                 return
 
         #self.explore_object(self.agent.game_state.discovered_objects[0])

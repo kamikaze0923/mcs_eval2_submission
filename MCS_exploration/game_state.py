@@ -146,7 +146,7 @@ class GameState(object):
 
             for obj in self.event.object_list:
                 if obj.uuid not in self.discovered_explored:
-                    print("uuid : ", obj.uuid)
+                    # print("uuid : ", obj.uuid)
                     self.discovered_explored[obj.uuid] = {0: obj.position}
                     self.discovered_objects.append(obj.__dict__)
                     self.discovered_objects[-1]['locationParent'] = None
@@ -213,7 +213,7 @@ class GameState(object):
 
         for obj in self.event.object_list :
             if obj.uuid not in self.discovered_explored :
-                print ("uuid : ", obj.uuid)
+                # print ("uuid : ", obj.uuid)
                 self.discovered_explored[obj.uuid] = {0:obj.position}
                 self.discovered_objects.append(obj.__dict__)
                 self.new_object_found = True
@@ -227,8 +227,8 @@ class GameState(object):
 
         self.times[2, 0] += time.time() - t_start
         self.times[2, 1] += 1
-        if self.times[2, 1] % 100 == 0:
-            print('env step time %.3f' % (self.times[2, 0] / self.times[2, 1]))
+        # if self.times[2, 1] % 100 == 0:
+        #     print('env step time %.3f' % (self.times[2, 0] / self.times[2, 1]))
 
         #if self.event.metadata['lastActionSuccess']:
         if self.event.return_status :

@@ -61,7 +61,7 @@ def explore_scene(sequence_generator,event, scene_type=None, scene_number=None):
     for elem in current_explored_objects:
         config_data['objects'].append(elem)
         config_data['objects'][-1]['id'] = config_data['objects'][-1]['uuid']
-        print (elem)
+        # print (elem)
     
     config_data['goal'] = sequence_generator.event.goal.__dict__
     #print (config_data['goal'])
@@ -75,7 +75,7 @@ def explore_scene(sequence_generator,event, scene_type=None, scene_number=None):
     else :
         config_data['goal_in_hand'] = False
 
-    print ("Agent data after end of exploration : x,y,rotation", config_data['performerStart']['position']['x'], config_data['performerStart']['position']['z'], config_data['performerStart']['rotation']['y'] )
+    # print ("Agent data after end of exploration : x,y,rotation", config_data['performerStart']['position']['x'], config_data['performerStart']['position']['z'], config_data['performerStart']['rotation']['y'] )
     print ("Goal object found status : ", sequence_generator.agent.game_state.goals_found)
 
     return config_data
@@ -99,7 +99,7 @@ def explore_all_scenes():
     #scene_numbers = ['0058']#,'0934','0935']
     scene_numbers = ['0007']
     #scene_numbers = create_scene_numbers('0100', '0201')
-    print (scene_numbers)
+    # print (scene_numbers)
     #exit()
     #scene_number = [i]
     all_data = {}
@@ -139,7 +139,7 @@ def explore_all_scenes():
             goal_objects = []
             
             
-            print (type(goal))
+            # print (type(goal))
             #for key,value in sequence_generator.agent.game_state.goal.__dict__.items():
             for key,value in goal.metadata.items():
                 if key == "target" or key == "target_1" or key == "target_2":
@@ -149,18 +149,18 @@ def explore_all_scenes():
                     #print (key, type(value))
 
             #sequence_generator.agent.game_state.discovered_objects = []
-            print ("Total objects discovered = " ,current_explored )
+            # print ("Total objects discovered = " ,current_explored )
             #with open("discovered_data.json","w") as fp:   
             #    print ("number of objects discovered until now : ",len(sequence_generator.agent.game_state.discovered_objects))  
             #    json.dump(sequence_generator.agent.game_state.discovered_objects,fp,indent=1)  
-            for elem in current_explored_uuids:
-                print (elem)#current_explored_objects
-
-            print ("explored objects over, goal next")
-
-            for elem in goal_objects:
-                print (elem)#current_explored_objects
-                         
+            # for elem in current_explored_uuids:
+            #     print (elem)#current_explored_objects
+            #
+            # # print ("explored objects over, goal next")
+            #
+            # for elem in goal_objects:
+            #     print (elem)#current_explored_objects
+            #
 
             for elem in goal_objects :
                 if elem in current_explored_uuids:

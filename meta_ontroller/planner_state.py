@@ -69,6 +69,8 @@ class GameState:
                     "(agentAtLocation {} {})".format(self.AGENT_NAME, agent_final_loc)
                 )
             elif self.goal_category == "retrieval":
+                if config['goal_in_hand'] == True:
+                    self.object_in_hand = PlanParser.create_legal_object_name(config['id_goal_in_hand'])
                 self.goal_object_id = PlanParser.create_legal_object_name(config['goal']['metadata']['target']['id'])
                 for obj in config['objects']:
                     if obj['id'] == self.goal_object_id:

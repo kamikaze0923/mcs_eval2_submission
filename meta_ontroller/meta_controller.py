@@ -58,7 +58,7 @@ class MetaController:
             for objectId,object_data in self.plannerState.object_loc_info.items():
                 #object_data == goal:
                 flag = 0
-                for k in range(len(object_data)):
+                for k in range(len(goal)):
                     if round(object_data[k],2) != goal[k]:
                         #print (round(object_data[k],2), goal[k])
                         flag = 1
@@ -73,6 +73,7 @@ class MetaController:
                 success_distance = machine_common_sense.mcs_controller_ai2thor.MAX_REACH_DISTANCE - 0.4
             else :
                 final_goal = (float(current_object_loc[3]), float(current_object_loc[4]), float(current_object_loc[5]))
+                print("Made a new goal {}".format(final_goal))
                 success_distance = 0
 
             success = self.nav.go_to_goal(
