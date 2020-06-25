@@ -1,4 +1,5 @@
 from tasks.task_based_resnet import TaskResNet
+from tasks.point_goal_navigation.navigator import NavigatorResNet
 
 import numpy as np
 from skimage import transform
