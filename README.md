@@ -55,17 +55,14 @@ chmod a+x MCS-AI2-THOR-Unity-App-v0.0.10.x86_64
 
 If you are running a Mac Machine:
 
-Download the unitty app and put in into a folder under the main directory call "unity_app"
+1. [Download the unitty app](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10-mac.zip)
 
-```
-https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10-mac.zip
-```
+2. Put in into a folder under the main directory call "unity_app"
 
-Interaction tasks need a Metric-ff planer to run. This repo contains Mac version of it. You can goto the following website for the source code and compile it for your own system.
 
-```
-https://fai.cs.uni-saarland.de/hoffmann/ff.html
-```
+Interaction tasks need a [Metric-ff planer](https://fai.cs.uni-saarland.de/hoffmann/ff.html) to run. 
+This repo contains Mac version of it. You can goto the linked website for the source code and compile it for your own system.
+
 
 ### Training Dataset
 
