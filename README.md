@@ -36,7 +36,7 @@ If you are running a Linux Machine:
 
 2. [Download the Latest MCS Unity Data Directory TAR](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz)
 
-3. Ensure that both the Unity App and the TAR are in the same directory called "unity_app".
+3. Ensure that both the Unity App and the TAR are in the same directory called "unity_app" under the main directory.
 
 4. Untar the Data Directory:
 
@@ -48,20 +48,18 @@ tar -xzvf MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz
 
 ```
 chmod a+x MCS-AI2-THOR-Unity-App-v0.0.10.x86_64
-
 ```
+
+6. Interaction tasks need a [Metric-ff planer](https://fai.cs.uni-saarland.de/hoffmann/ff.html) to run. 
+This repo contains Mac version of it. You can goto the linked website for the source code and compile it for your Linux system.
 
 
 
 If you are running a Mac Machine:
 
-1. [Download the unitty app](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10-mac.zip)
+1. [Download the unitty app](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10-mac.zip).
 
-2. Put in into a folder under the main directory call "unity_app"
-
-
-Interaction tasks need a [Metric-ff planer](https://fai.cs.uni-saarland.de/hoffmann/ff.html) to run. 
-This repo contains Mac version of it. You can goto the linked website for the source code and compile it for your own system.
+2. Put in into a folder under the main directory call "unity_app".
 
 
 ### Training Dataset
