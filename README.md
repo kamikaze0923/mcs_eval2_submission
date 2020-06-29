@@ -30,6 +30,8 @@ pip install git+https://github.com/NextCenturyCorporation/MCS@latest
 
 The latest release of the MCS Unity app is `0.0.10`
 
+If you are running a Linux Machine:
+
 1. [Download the Latest MCS Unity App](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10.x86_64)
 
 2. [Download the Latest MCS Unity Data Directory TAR](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz)
@@ -46,11 +48,24 @@ tar -xzvf MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz
 
 ```
 chmod a+x MCS-AI2-THOR-Unity-App-v0.0.10.x86_64
+
 ```
 
-6. Interaction tasks need a Metric-ff planer to run. This repo contains Mac version of it. You can goto the following website for the source code and compile it for your own system.
 
-(https://fai.cs.uni-saarland.de/hoffmann/ff.html)
+
+If you are running a Mac Machine:
+
+Download the unitty app and put in into a folder under the main directory call "unity_app"
+
+```
+https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10-mac.zip
+```
+
+Interaction tasks need a Metric-ff planer to run. This repo contains Mac version of it. You can goto the following website for the source code and compile it for your own system.
+
+```
+https://fai.cs.uni-saarland.de/hoffmann/ff.html
+```
 
 ### Training Dataset
 
