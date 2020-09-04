@@ -30,11 +30,24 @@ pip install git+https://github.com/NextCenturyCorporation/MCS@latest
 
 The latest release of the MCS Unity app is `0.0.10`
 
-1. [Download the Latest MCS Unity App](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10.x86_64)
+1. Ensure that both the Unity App and the TAR are in the same directory called "unity_app".
 
-2. [Download the Latest MCS Unity Data Directory TAR](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz)
+```
+mkdir unity_app
+cd unity_app
+```
 
-3. Ensure that both the Unity App and the TAR are in the same directory called "unity_app".
+2. [Download the Latest MCS Unity App](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10.x86_64)
+
+```
+wget https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10.x86_64
+```
+
+3. [Download the Latest MCS Unity Data Directory TAR](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz)
+
+```
+wget https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz
+```
 
 4. Untar the Data Directory:
 
