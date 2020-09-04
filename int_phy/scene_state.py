@@ -27,8 +27,8 @@ class SceneState:
             plt.xlim((-6,6))
             plt.ylim(-1,5)
             legend_elements = [
-                Line2D([0], [0], marker='X', color='w', markerfacecolor='b', label='Prediction of Current Step', markersize=5),
-                Line2D([0], [0], marker='X', color='w', markerfacecolor='r', label='Current Step Ground Truth', markersize=5)
+                Line2D([0], [0], marker='X', color='w', markerfacecolor='b', label='Prediction of Next Step', markersize=5),
+                Line2D([0], [0], marker='X', color='w', markerfacecolor='r', label='Next Step Ground Truth', markersize=5)
             ]
             plt.legend(handles=legend_elements, prop={'size': 6})
 

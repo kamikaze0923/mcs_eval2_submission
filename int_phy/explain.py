@@ -43,6 +43,7 @@ def check_object_patially_occlusion(all_occluder_dict, object_state, all_object_
             if dis <= 1:
                 occlusion = True
 
+
     return occlusion
 
 def check_object_on_edge(object_state, frame_size):

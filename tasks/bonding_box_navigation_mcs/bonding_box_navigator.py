@@ -1,6 +1,3 @@
-#from tasks.bonding_box_navigation_mcs.visibility_road_map import IncrementalVisibilityRoadMap, ObstaclePolygon
-#from tasks.bonding_box_navigation_mcs.fov import FieldOfView
-
 from MCS_exploration.navigation.visibility_road_map import IncrementalVisibilityRoadMap,ObstaclePolygon
 from MCS_exploration.navigation.fov import FieldOfView
 
@@ -13,7 +10,7 @@ from descartes import PolygonPatch
 
 import pickle
 
-SHOW_ANIMATION = True
+SHOW_ANIMATION = False
 random.seed(1)
 
 class BoundingBoxNavigator:
@@ -133,7 +130,6 @@ class BoundingBoxNavigator:
 			fov.agentH = self.agentH
 			poly = fov.getFoVPolygon(15)
 
-			SHOW_ANIMATION = False
 
 			if SHOW_ANIMATION:
 				plt.cla()
@@ -146,12 +142,13 @@ class BoundingBoxNavigator:
 				circle = plt.Circle((self.agentX, self.agentY), radius=self.radius, color='r')
 				plt.gca().add_artist(circle)
 				plt.plot(gx, gy, "x")
-				poly.plot("-r")
+				poly.plot("red")
 
 				for obstacle in self.scene_obstacles_dict.values():
-					obstacle.plot("-g")
+					obstacle.plot("green")
 
 				plt.axis("equal")
+				plt.pause(0.1)
 
 			stepSize, heading = self.get_one_step_move([gx, gy], roadmap)
 

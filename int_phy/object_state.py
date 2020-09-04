@@ -316,6 +316,7 @@ class ObjectState:
         #     print("object {} first appear as {}".format(self.id, decision))
         self.appearance = (decision, likelihood)
         self.appearance_cnt[decision] += 1
+        print(decision)
 
 
     def get_appearance_score(self):

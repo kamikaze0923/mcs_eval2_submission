@@ -5,7 +5,7 @@ import torch
 import os
 
 
-WITH_OCCLUDER = True
+WITH_OCCLUDER = False
 SAVE_SCENE_LENGTH = 20
 
 TOTAL_SCENE = 20 # max 1080
@@ -13,7 +13,7 @@ assert TOTAL_SCENE % SAVE_SCENE_LENGTH == 0
 N_RESTART = TOTAL_SCENE // SAVE_SCENE_LENGTH
 
 DATA_SAVE_DIR = os.path.join("int_phy", "locomotion", "positions_old_additional")
-SCENE_TYPES = ["object_permanence"]
+SCENE_TYPES = ["spatio_temporal_continuity"]
 
 
 if __name__ == "__main__":
@@ -40,7 +40,7 @@ if __name__ == "__main__":
             start_scene_number += SAVE_SCENE_LENGTH
             for _ in range(SAVE_SCENE_LENGTH):
                 env.reset(random_init=False)
-                if len(env.scene_config['goal']['action_list']) != 40:
+                if len(env.scene_config['goal']['action_list']) != 60:
                     continue
                 env_new_objects = []
                 env_occluders = []

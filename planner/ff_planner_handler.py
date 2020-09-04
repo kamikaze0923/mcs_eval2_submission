@@ -146,7 +146,7 @@ class PlanParser(object):
         return parsed_plan
 
     def planner_state_to_pddl(self, gameState):
-        tittle = "define (problem ball_and_bowl)\n"
+        tittle = "define (problem playroom)\n"
         domain = "\t(:domain playroom)\n"
         metric = "\t(:metric minimize (totalCost))\n"
 

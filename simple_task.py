@@ -4,7 +4,7 @@ import sys
 
 
 if __name__ == "__main__":
-    env = McsEnv(task="interaction_scenes", scene_type="traversal", start_scene_number=100)
+    env = McsEnv(task="interaction_scenes", scene_type="transferral", start_scene_number=26)
     metaController = MetaController(env)
 
     while env.current_scene < len(env.all_scenes) - 1:

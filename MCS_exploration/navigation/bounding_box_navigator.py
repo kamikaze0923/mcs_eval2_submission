@@ -8,7 +8,7 @@ import cover_floor
 import time
 from shapely.geometry import Point, Polygon
 
-SHOW_ANIMATION = True
+SHOW_ANIMATION = False
 random.seed(1)
 
 class BoundingBoxNavigator:
@@ -149,7 +149,6 @@ class BoundingBoxNavigator:
 
 			#print ("time taken till creating FOV after roadmap",time_taken_part_1)
 
-			SHOW_ANIMATION = False
 
 			if SHOW_ANIMATION:
 				plt.cla()
@@ -162,13 +161,13 @@ class BoundingBoxNavigator:
 				circle = plt.Circle((self.agentX, self.agentY), radius=self.radius, color='r')
 				plt.gca().add_artist(circle)
 				plt.plot(gx, gy, "x")
-				poly.plot("-r")
+				poly.plot("red")
 
 				for obstacle in self.scene_obstacles_dict.values():
-					obstacle.plot("-g")
+					obstacle.plot("green")
 
 				plt.axis("equal")
-				#plt.pause(0.1)
+				plt.pause(0.1)
 
 			start_time = time.time()
 			stepSize, heading = self.get_one_step_move([gx, gy], roadmap)
@@ -322,13 +321,13 @@ def main():
 
 				plt.plot(plan.agentX, plan.agentY, "or")
 				plt.plot(gx, gy, "ob")
-				poly.plot("-r")
+				poly.plot("red")
 			
 				for i in range(len(obstacles)):
 					if visible[i]:
-						obstacles[i].plot("-g")
+						obstacles[i].plot("green")
 					else:
-						obstacles[i].plot("-k")
+						obstacles[i].plot("black")
 				
 				plt.axis("equal")
 				plt.pause(0.1)
