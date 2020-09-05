@@ -23,3 +23,6 @@ mv intphys_scenes/spatio_temporal_continuity*.json intphys_scenes/spatio_tempora
 mv interaction_scenes/retrieval*.json interaction_scenes/retrieval
 mv interaction_scenes/traversal*.json interaction_scenes/traversal
 mv interaction_scenes/transferral*.json interaction_scenes/transferral
+
+rm interaction-scenes.zip
+rm intphys-scenes.zip
