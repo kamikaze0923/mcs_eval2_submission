@@ -3,6 +3,7 @@ import shlex
 import subprocess
 from planner.utils import replace_location_string
 import os
+import platform
 
 
 DEBUG = False
@@ -61,7 +62,13 @@ def get_plan_from_file(args):
     domain, filepath, solver_type = args
 
     try:
-        command = "ff_planner/ff " "-o %s " "-s %d " "-f %s " % (domain, solver_type, filepath)
+        if platform.system() == "Linux":
+            planner_dir = "linux"
+        elif platform.system() == "Darwin":
+            planner_dir = "mac"
+        else:
+            raise ValueError("Please compile your onw planner version")
+        command = "ff_planner_{}/ff " "-o {} " "-s {} " "-f {} ".format(planner_dir, domain, solver_type, filepath)
         if DEBUG:
             print(command)
         planner_output = subprocess.check_output(shlex.split(command), timeout=2)

@@ -61,7 +61,7 @@ tar -xzvf MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz
 chmod a+x MCS-AI2-THOR-Unity-App-v0.0.10.x86_64
 ```
 
-6. Interaction tasks need a Metric-ff planer to run. This repo contains Mac version of the planner. You can refer to the linked website for the source code and compile it for your own system.
+6. Interaction tasks need a Metric-ff planer to run. This repo contains both a Mac and a Linux version. You can refer to the linked website for the source code and compile it for your own system.
 
 (https://fai.cs.uni-saarland.de/hoffmann/ff.html)
 
