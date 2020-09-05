@@ -65,13 +65,11 @@ chmod a+x MCS-AI2-THOR-Unity-App-v0.0.10.x86_64
 
 (https://fai.cs.uni-saarland.de/hoffmann/ff.html)
 
-### Training Dataset
+7. Download the datasets:
 
-Interactive:
-https://evaluation2-training-scenes.s3.amazonaws.com/interaction-scenes.zip
-
-Intphys:
-https://evaluation2-training-scenes.s3.amazonaws.com/intphys-scenes.zip
+```
+bash get_dataset.sh
+```
 
 
 ## Run with Interaction Task
