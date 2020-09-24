@@ -65,10 +65,17 @@ chmod a+x MCS-AI2-THOR-Unity-App-v0.0.10.x86_64
 
 (https://fai.cs.uni-saarland.de/hoffmann/ff.html)
 
-7. Download the datasets:
+7. Go to the project root directory and download the datasets:
 
 ```
+cd ../
 bash get_dataset.sh
+```
+
+7. Export the project root directory to the $PYTHONPATH:
+
+```
+export PYTHONPATH=$PWD
 ```
 
 
