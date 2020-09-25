@@ -37,7 +37,7 @@ class MetaController:
         self.obstacles = {}
 
         self.plannerState = None
-        self.sequence_generator_object = sequence_generator.SequenceGenerator(None,self.env.controller)
+        self.sequence_generator_object = sequence_generator.SequenceGenerator(None, self.env)
 
 
     def plan_on_current_state(self):
@@ -49,7 +49,7 @@ class MetaController:
         #self.plannerState = GameState(self.env.scene_config)
         self.plannerState = GameState(scene_config)
 
-    def step(self, action_dict, epsd_collector=None, frame_collector=None):
+    def step(self, action_dict, epsd_collector=None):
         assert 'action' in action_dict
         if action_dict['action'] == "GotoLocation":
             goal = get_goal(action_dict['location'])
@@ -103,7 +103,7 @@ class MetaController:
                 print("Object {} not at {}".format(action_dict['objectId'], action_dict['location']))
             self.plannerState.face_to_front = False
         elif action_dict['action'] == "PickupObject":
-            self.obj_env.step("PickupObject", object_id=action_dict['objectId'], epsd_collector=epsd_collector)
+            self.obj_env.step("PickupObject", object_id=action_dict['objectId'])
             if self.env.step_output.return_status == "SUCCESSFUL":
                 self.plannerState.object_in_hand = action_dict['objectId']
             else:
@@ -135,7 +135,7 @@ class MetaController:
         elif action_dict['action'] == "PutObjectIntoReceptacle":
             self.obj_env.step(
                 "PutObjectIntoReceptacle", object_id=action_dict['objectId'],
-                receptacleObjectId=action_dict['receptacleId'], epsd_collector=epsd_collector
+                receptacleObjectId=action_dict['receptacleId']
             )
             if self.env.step_output.return_status == "SUCCESSFUL":
                 self.plannerState.object_in_hand = None
@@ -143,7 +143,7 @@ class MetaController:
             else:
                 self.plannerState.knowledge.canNotPutin.add((action_dict['objectId'], action_dict['receptacleId']))
         elif action_dict['action'] == "OpenObject":
-            self.obj_env.step("OpenObject", object_id=action_dict['objectId'], epsd_collector=epsd_collector)
+            self.obj_env.step("OpenObject", object_id=action_dict['objectId'])
             if self.env.step_output.return_status == "SUCCESSFUL":
                 self.plannerState.object_open_close_info[action_dict['objectId']] = True
             else:
@@ -152,7 +152,7 @@ class MetaController:
         elif action_dict['action'] == "DropObjectNextTo":
             FaceTurnerResNet.look_to_front(self.face_env)
             self.env.step(action="RotateLook", horizon=9.536743e-06)
-            self.obj_env.step("DropObject", object_id=action_dict['objectId'], epsd_collector=epsd_collector)
+            self.obj_env.step("DropObject", object_id=action_dict['objectId'])
             if self.env.step_output.return_status == "SUCCESSFUL":
                 self.plannerState.knowledge.objectNextTo[action_dict['objectId']] = action_dict['goal_objectId']
                 self.plannerState.object_in_hand = None
@@ -176,7 +176,7 @@ class MetaController:
         elif action_dict['action'] == "DropObjectOnTopOf":
             self.obj_env.step(
                 "PutObjectIntoReceptacle", object_id=action_dict['objectId'],
-                receptacleObjectId=action_dict['goal_objectId'], epsd_collector=epsd_collector
+                receptacleObjectId=action_dict['goal_objectId']
             ) # use magical action at current point
             if self.env.step_output.return_status == "SUCCESSFUL":
                 self.plannerState.knowledge.objectOnTopOf[action_dict['objectId']] = action_dict['goal_objectId']
@@ -188,8 +188,8 @@ class MetaController:
                 return False
         return True
 
-    def excecute(self, frame_collector=None):
-        scene_config = main.explore_scene(self.sequence_generator_object,self.env.step_output)#'retrieval-', '0001'
+    def excecute(self):
+        scene_config = main.explore_scene(self.sequence_generator_object, self.env.step_output)#'retrieval-', '0001'
         self.get_inital_planner_state(scene_config)
         if isinstance(self.nav, BoundingBoxNavigator):
             self.nav.clear_obstacle_dict()
@@ -202,7 +202,7 @@ class MetaController:
             for plan in result_plan:
                 print(plan)
                 break
-            success = self.step(result_plan[0], frame_collector=frame_collector)
+            success = self.step(result_plan[0])
             if not success:
                 break
             if result_plan[0]['action'] == "End":

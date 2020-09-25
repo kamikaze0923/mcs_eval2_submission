@@ -23,10 +23,7 @@ class McsNavWrapper(McsWrapper):
         else:
             assert action == 'Stop'
             # raise AttributeError('Navigator Should End Before Stop')
-        if epsd_collector is not None:
-            epsd_collector.add_experience(self.step_output, action)
-        if frame_colletor is not None:
-            frame_colletor.add_frame(self.step_output.depth_mask_list[0])
+
 
         return self.step_output
 

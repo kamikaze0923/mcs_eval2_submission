@@ -160,7 +160,7 @@ class SequenceGenerator(object):
             
         return number_actions
 
-    def explore_scene_view(self, event, config_filename=None):
+    def explore_scene_view(self, event, config_filename=None, frame_collector=None):
         number_actions = 0
         success_distance = 0.3
         self.scene_name = 'transferral_data'

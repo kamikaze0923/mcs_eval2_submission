@@ -82,7 +82,7 @@ class BoundingBoxNavigator:
 				self.scene_obstacles_dict[obj.uuid] = ObstaclePolygon(x_list, y_list)
 				self.scene_obstacles_dict_roadmap[obj.uuid] = 0
 
-	def go_to_goal(self, nav_env, goal, success_distance):
+	def go_to_goal(self, nav_env, goal, success_distance, frame_collector=None):
 		self.agentX = nav_env.step_output.position['x']
 		self.agentY = nav_env.step_output.position['z']
 		self.agentH = nav_env.step_output.rotation / 360 * (2 * math.pi)

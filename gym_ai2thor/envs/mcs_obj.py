@@ -7,7 +7,7 @@ class McsObjWrapper(McsWrapper):
     def __init__(self, env):
         super().__init__(env)
 
-    def step(self, action, object_id=None, receptacleObjectId=None, epsd_collector=None):
+    def step(self, action, object_id=None, receptacleObjectId=None):
         assert object_id is not None
         object_id = PlanParser.map_legal_object_name_back(object_id)
         if action in ["PickupObject", "OpenObject", "DropObject"]:
@@ -17,5 +17,3 @@ class McsObjWrapper(McsWrapper):
             receptacleObjectId = PlanParser.map_legal_object_name_back(receptacleObjectId)
             super().step(action="PutObject", objectId=object_id, receptacleObjectId=receptacleObjectId)
 
-        if epsd_collector:
-            epsd_collector.add_experience(self.env.step_output, action)

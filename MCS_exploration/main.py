@@ -30,7 +30,7 @@ def create_scene_numbers(min_scene_number , max_scene_number):
         scene_numbers.append('{0:04}'.format(i))
     return scene_numbers
 
-def explore_scene(sequence_generator,event, scene_type=None, scene_number=None):
+def explore_scene(sequence_generator,event, scene_type=None, scene_number=None, frame_collector=None):
     '''
     if scene_type != None and scene_number != None :
         sequence_generator.explore_3d_scene(event, str(scene_type)+ scene_number + ".json")
@@ -39,9 +39,9 @@ def explore_scene(sequence_generator,event, scene_type=None, scene_number=None):
     '''
 
     if scene_type != None and scene_number != None :
-        sequence_generator.explore_scene_view(event, str(scene_type)+ scene_number + ".json")
+        sequence_generator.explore_scene_view(event, str(scene_type)+ scene_number + ".json", frame_collector=frame_collector)
     else :
-        sequence_generator.explore_scene_view(event)
+        sequence_generator.explore_scene_view(event, frame_collector=frame_collector)
 
     config_data = {}
     

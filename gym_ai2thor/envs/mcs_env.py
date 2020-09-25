@@ -12,7 +12,7 @@ class McsEnv:
     """
     Wrapper base class
     """
-    def __init__(self, task=None, scene_type=None, seed=None, start_scene_number=0):
+    def __init__(self, task=None, scene_type=None, seed=None, start_scene_number=0, frame_collector=None):
 
         if platform.system() == "Linux":
             app = "unity_app/MCS-AI2-THOR-Unity-App-v0.0.10.x86_64"
@@ -40,12 +40,17 @@ class McsEnv:
             random.seed(seed)
 
         self.add_obstacle_func = None
+        self.frame_collector = frame_collector
 
     def step(self, **kwargs):
         self.step_output = self.controller.step(**kwargs)
         if self.add_obstacle_func:
             self.add_obstacle_func(self.step_output)
         # print(self.step_output.return_status)
+        if self.frame_collector:
+            self.frame_collector.save_frame(self.step_output)
+
+        return self.step_output
 
     def reset(self, random_init=False, repeat_current=False):
         if not repeat_current:

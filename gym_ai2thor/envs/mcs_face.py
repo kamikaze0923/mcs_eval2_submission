@@ -17,7 +17,7 @@ class McsFaceWrapper(McsWrapper):
             "MoveAhead", "MoveBack", "MoveLeft", "MoveRight", "RotateLeft", "RotateRight", "LookUp", "LookDown", "Stop"
         ]
 
-    def step(self, action, epsd_collector=None):
+    def step(self, action):
         assert action in self.action_names
         if action == "LookUp":
             super().step(action="RotateLook", horizon=-self.ABS_HEADTILT)
@@ -35,8 +35,6 @@ class McsFaceWrapper(McsWrapper):
             super().step(action="MoveLeft", amount=self.ABS_MOVE)
         elif action == "MoveRight":
             super().step(action="MoveRight", amount=self.ABS_MOVE)
-        if epsd_collector is not None:
-            epsd_collector.add_experience(self.step_output, action)
 
     def set_look_dir(self, rotation_in_all, horizon_in_all):
         super().step(action="RotateLook", horizon=horizon_in_all, rotaion=rotation_in_all)

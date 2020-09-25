@@ -204,12 +204,12 @@ class GameState(object):
         #print ("action creating time",action_creation_time)
 
         start_2 = time.time()
-        self.event = self.env.step(action)
+        self.event = self.env.step(action=action)
         end_2 = time.time()
         action_time = end_2-start_2
 
         #print ("action time", action_time)
-        lastActionSuccess = self.event.return_status
+        # lastActionSuccess = self.event.return_status
 
         for obj in self.event.object_list :
             if obj.uuid not in self.discovered_explored :
