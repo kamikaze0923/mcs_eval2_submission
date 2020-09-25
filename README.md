@@ -20,11 +20,6 @@ pip install -r requirements.txt
 pip show ai2thor
 ```
 
-3. Install the MCS Python Library:
-
-```
-pip install git+https://github.com/NextCenturyCorporation/MCS@latest
-```
 
 ### Unity Application
 
