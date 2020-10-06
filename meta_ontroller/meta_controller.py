@@ -197,7 +197,7 @@ class MetaController:
             self.nav.scene_obstacles_dict = scene_config['obstacles']
         meta_stage = 0
         while True:
-            print("Meta-Stage: {}".format(meta_stage))
+            # print("Meta-Stage: {}".format(meta_stage))
             result_plan = self.plan_on_current_state()
             for plan in result_plan:
                 print(plan)
@@ -209,5 +209,5 @@ class MetaController:
                 break
             meta_stage += 1
         # time.sleep(2)
-        print("Task Reward: {}\n".format(self.env.step_output.reward))
+        # print("Task Reward: {}\n".format(self.env.step_output.reward))
         return True
