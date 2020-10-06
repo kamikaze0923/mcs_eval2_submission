@@ -1,5 +1,5 @@
 from gym_ai2thor.envs.mcs_env import McsEnv
-import numpy as np
+from frame_collector import Frame_collector
 
 class McsHumanControlEnv(McsEnv):
     def __init__(self,  **args):
@@ -9,50 +9,50 @@ class McsHumanControlEnv(McsEnv):
     def step(self, action_str, **args):
         print("Action you entered: {} {}".format(action_str, args))
         if "Move" in action_str:
-            self.step_output = self.controller.step(action=action_str)
+            self.step_output = super().step(action=action_str)
         elif "Look" in action_str:
             if action_str == "LookUp":
-                self.step_output = self.controller.step(action="RotateLook", **args)
+                self.step_output = super().step(action="RotateLook", **args)
             elif action_str == "LookDown":
-                self.step_output = self.controller.step(action="RotateLook", **args)
+                self.step_output = super().step(action="RotateLook", **args)
             else:
                 raise NotImplementedError
         elif "Rotate" in action_str:
             if action_str == "RotateLeft":
-                self.step_output = self.controller.step(action="RotateLook", **args)
+                self.step_output = super().step(action="RotateLook", **args)
             elif action_str == "RotateRight":
-                self.step_output = self.controller.step(action="RotateLook", **args)
+                self.step_output = super().step(action="RotateLook", **args)
             else:
-                self.step_output = self.controller.step(action="RotateObject", objectId=args['objectId'], rotationY=10)
+                self.step_output = super().step(action="RotateObject", objectId=args['objectId'], rotationY=10)
         elif action_str == "PickupObject":
-            self.step_output = self.controller.step(action="PickupObject", **args)
+            self.step_output = super().step(action="PickupObject", **args)
             if self.step_output.return_status == "SUCCESSFUL":
                 self.hand_object = args['objectId']
         elif action_str == "PutObject":
             args["objectId"] = self.hand_object
-            self.step_output = self.controller.step(action="PutObject", **args)
+            self.step_output = super().step(action="PutObject", **args)
             if self.step_output.return_status == "SUCCESSFUL":
                 self.hand_object = None
         elif action_str == "DropObject":
             args["objectId"] = self.hand_object
-            self.step_output = self.controller.step(action="DropObject", **args)
+            self.step_output = super().step(action="DropObject", **args)
             if self.step_output.return_status == "SUCCESSFUL":
                 self.hand_object = None
         elif action_str == "ThrowObject":
             args["objectId"] = self.hand_object
-            self.step_output = self.controller.step(action="ThrowObject", **args)
+            self.step_output = super().step(action="ThrowObject", **args)
             if self.step_output.return_status == "SUCCESSFUL":
                 self.hand_object = None
         elif action_str == "PushObject":
-            self.step_output = self.controller.step(action="PushObject", **args)
+            self.step_output = super().step(action="PushObject", **args)
         elif action_str == "PullObject":
-            self.step_output = self.controller.step(action="PullObject", **args)
+            self.step_output = super().step(action="PullObject", **args)
         elif action_str == "OpenObject":
-            self.step_output = self.controller.step(action="OpenObject", **args)
+            self.step_output = super().step(action="OpenObject", **args)
         elif action_str == "CloseObject":
-            self.step_output = self.controller.step(action="CloseObject", **args)
+            self.step_output = super().step(action="CloseObject", **args)
         else:
-            self.step_output = self.controller.step(action=action_str)
+            self.step_output = super().step(action=action_str)
 
 
     def print_step_output(self):
@@ -73,8 +73,8 @@ class McsHumanControlEnv(McsEnv):
         print("Camera Field of view {}".format(self.step_output.camera_field_of_view))
         print("Visible Objects:")
         for obj in self.step_output.object_list:
-            print("Distance {:.3f} to {} ({:.3f},{:.3f},{:.3f})".format(
-                obj.distance_in_world, obj.uuid, obj.position['x'], obj.position['y'], obj.position['z'])
+            print("Distance {:.3f} to {}-{}-{} ({:.3f},{:.3f},{:.3f})".format(
+                obj.distance_in_world, obj.shape, obj.uuid, obj.color, obj.position['x'], obj.position['y'], obj.position['z'])
             )
 
         for obj in self.step_output.structural_object_list:
@@ -83,19 +83,14 @@ class McsHumanControlEnv(McsEnv):
             print("Distance {:.3f} to {} ({:.3f},{:.3f},{:.3f})".format(
                 obj.distance_in_world, obj.uuid, obj.position['x'], obj.position['y'], obj.position['z'])
             )
-            # for one_dim in obj.dimensions:
-            #     print(one_dim)
-
-
-
-
-
 
 
 
 
 if __name__ == '__main__':
-    env = McsHumanControlEnv(task="interaction_scenes", scene_type="traversal", start_scene_number=0)
+    start_scene_number = 0
+    collector = Frame_collector(scene_dir="simple_task_img", start_scene_number=start_scene_number)
+    env = McsHumanControlEnv(task="interaction_scenes", scene_type="transferral", start_scene_number=start_scene_number, frame_collector=collector)
     env.reset()
 
     while True:

@@ -1,5 +1,6 @@
 import os
 
+
 class Frame_collector:
 
     def __init__(self, scene_dir, start_scene_number):
@@ -17,7 +18,8 @@ class Frame_collector:
         self.step += 1
 
         for i in step_output.object_list:
-            print(i.shape, i.color)
+            if i.shape != "shelf":
+                print(i.shape, i.color)
         for i in step_output.structural_object_list:
             print(i.uuid, i.color) # uuid need to be finely categorized
 
