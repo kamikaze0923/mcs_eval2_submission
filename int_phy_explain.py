@@ -7,7 +7,7 @@ from frame_collector import Frame_collector
 scene_name = "object_permanence"
 start_scene_number = 0
 collector = Frame_collector(scene_dir="intphy_task_img", start_scene_number=start_scene_number)
-env = McsEnv(task="intphys_scenes", scene_type=scene_name, start_scene_number=start_scene_number, frame_collector=None)
+env = McsEnv(task="intphys_scenes", scene_type=scene_name, start_scene_number=start_scene_number, frame_collector=collector)
 
 appearance_checker = ApearanceModel()
 locomotion_checker = LocomotionModel()
