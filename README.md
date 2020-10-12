@@ -6,7 +6,6 @@ Here are the instructions for downloading and setting up environment for MCS eva
 
 ### Python Library
 
-The latest release of the MCS Python library is `0.0.10`
 
 1. Install the required third-party Python libraries:
 
@@ -32,42 +31,58 @@ mkdir unity_app
 cd unity_app
 ```
 
-2. [Download the Latest MCS Unity App](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10.x86_64)
+2. If you have a Linux system
+
+[Download the Latest MCS Unity App](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10.x86_64)
 
 ```
 wget https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10.x86_64
-```
 
-3. [Download the Latest MCS Unity Data Directory TAR](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz)
+```
+[Download the Latest MCS Unity Data Directory TAR](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz)
 
 ```
 wget https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz
 ```
 
-4. Untar the Data Directory:
+Untar the Data Directory:
 
 ```
 tar -xzvf MCS-AI2-THOR-Unity-App-v0.0.10_Data.tar.gz
 ```
 
-5. Mark the Unity App as executable:
+Mark the Unity App as executable:
 
 ```
 chmod a+x MCS-AI2-THOR-Unity-App-v0.0.10.x86_64
 ```
 
-6. Interaction tasks need a Metric-ff planer to run. This repo contains both a Mac and a Linux version. You can refer to the linked website for the source code and compile it for your own system.
+3. If you have a Mac system
+
+[Download the Latest MCS Unity App](https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10-mac.zip)
+
+```
+wget https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10-mac.zip
+
+```
+Unzip the app:
+
+```
+unzip MCS-AI2-THOR-Unity-App-v0.0.10-mac.zip
+```
+
+4. Interaction tasks need a Metric-ff planer to run. This repo contains both a Mac and a Linux version. You can refer to the linked website for the source code and compile it for your own system.
 
 (https://fai.cs.uni-saarland.de/hoffmann/ff.html)
 
-7. Go to the project root directory and download the datasets:
+5. Go to the project root directory and download the datasets:
 
 ```
 cd ../
 bash get_dataset.sh
 ```
 
-7. Export the project root directory to the $PYTHONPATH:
+6. Export the project root directory to the $PYTHONPATH:
 
 ```
 export PYTHONPATH=$PWD
