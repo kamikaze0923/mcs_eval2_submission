@@ -63,7 +63,6 @@ chmod a+x MCS-AI2-THOR-Unity-App-v0.0.10.x86_64
 
 ```
 wget https://github.com/NextCenturyCorporation/MCS/releases/download/0.0.10/MCS-AI2-THOR-Unity-App-v0.0.10-mac.zip
-
 ```
 Unzip the app:
 
