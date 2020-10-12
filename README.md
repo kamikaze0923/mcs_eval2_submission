@@ -79,9 +79,11 @@ export PYTHONPATH=$PWD
 ```
 python simple_task.py
 ```
+![alt-text](https://github.com/cyclone923/mcs_eval2_submission/blob/master/demo_1.gif)
 
 ## Run with Intuitive Physics Task
 
 ```
 python int_phy_explain.py
 ```
+![alt-text](https://github.com/cyclone923/mcs_eval2_submission/blob/master/demo_2.gif)
